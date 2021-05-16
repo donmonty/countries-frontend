@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import Select from './Select';
 import Input from './Input';
+import styles from './Bar.module.css';
 
 import { useDispatch, useSelector } from "react-redux";
 import { loadCountries } from "../../store/countries";
@@ -14,7 +15,7 @@ function Bar () {
   const lastQuery = useSelector(countries => countries.lastQuery);
 
   const continentOptions = [
-    { key: 'Select an option', value: null },
+    { key: 'Select continent', value: null },
     // { key: 'Select an option', value: '' },
     { key: 'Americas', value: 'Americas' },
     { key: 'Europe', value: 'Europe' },
@@ -47,7 +48,7 @@ function Bar () {
       onSubmit={onSubmit}
     >
       {formik => (
-        <Form>
+        <Form className={styles.container}>
           <Input
             label='Country name'
             name='name'
@@ -60,7 +61,7 @@ function Bar () {
           />
           
           
-          <button type='submit'>Submit</button>
+          <button className={styles.submitButton} type='submit'>Submit</button>
         </Form>
       )}
     </Formik>

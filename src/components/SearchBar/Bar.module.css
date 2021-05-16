@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #F6F75F;
+}
+
+.submitButton {
+  background-color: #5F76F8;
+  width: 100px;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+}
