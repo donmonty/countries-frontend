@@ -8,6 +8,12 @@ const slice = createSlice({
   name: 'countries',
   initialState: {
     list: [],
+    lastQuery: {
+      name: null,
+      continent: 'Americas',
+      activity: 'Ski',
+      order: null
+    },
     loading: false,
     lastFetch: null
   },
@@ -27,6 +33,10 @@ const slice = createSlice({
       countries.loading = false;
     },
 
+    countriesQueryReceived: (countries, action) => {
+      countries.lastQuery = action.payload;
+    }
+
   }
 });
 
@@ -34,7 +44,8 @@ const slice = createSlice({
 export const {
   countriesRequested,
   countriesReceived,
-  countriesRequestFailed
+  countriesRequestFailed,
+  countriesQueryReceived
 } = slice.actions;
 
 // Export the reducer

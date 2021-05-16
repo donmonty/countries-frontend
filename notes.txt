@@ -1,0 +1,45 @@
+
+
+UPDATING SEARCH RESULTS WHEN CHANGING FILTERS AND SORT ORDER
+===============================================================
+
+The search params change any time the user:
+...........................................................
+- Types a new country in the search field
+- Clicks an activity name in the sidebar
+- Selects a different sort order in the dropdown menu
+
+
+- It is important to note that the search query can only be updated ONE PARAMETER AT A TIME.
+- The exception happens if we add a dropdown menu with all the activities.
+- In that case the user can search by COUNTRY, ACTIVITY and CONTINENT at the same time by clicking a SEARCH BUTTON. However, this makes the activities sidebar unnecessary.
+- We will choose the latter approach because it saves a lot of work.
+
+SEARCH FORM
+.........................................................................
+- The latter approach implies the COUNTRY search field and the ACTIVITIES and CONTINENT dropdowns are part of a Formik FORM.
+- The form is dispatched by clicking the SEARCH BUTTON. This should dispatch a "loadCountries" action to the Redux store.
+- The "loadCountries" action is dispatched with the COUNTRY, ACTIVITY and CONTINENT parameters. These parameters should be stored in local state variables via the useState() hooks:
+
+........................................................................
+const lastQuery = useSelector(countries => countries.lastQuery);
+
+const [country, setCountry] = useState(lastQuery.name);
+const [activity, setActivity] = useState(lastQuery.activity);
+const [continent, setContinent] = useState(lastQuery.continent);
+const [sortOrder, setSortOrder] = useState(lastQuery.order);
+
+Theese state values will be used as the payload of the 'loadCountries' action:
+
+dispatch(loadCountries({
+  name: country,
+  activity,
+  continent,
+  order: sortOrder
+}))
+
+- The api middleware then takes the submited parameters and compares them to the search query stored in the store (via the getState() function)
+- If they dont match, 'loadCountries' makes an API call. If they match, it does nothing.
+
+- Before requesting data from the API, "loadCountries" should check if the search params have changed.
+
