@@ -10,6 +10,9 @@ function Select (props) {
     {/* <div className='form-control'> */}
       {/* <label htmlFor={name}>{label}</label> */}
       <Field className={styles.field} as='select' id={name} name={name} {...rest}>
+
+        {/* { defaultValue ? (<option key={defaultValue.key} value={defaultValue.value} >{defaultValue.key}</option>) : null } */}
+
         {options.map(option => {
           return (
             <option key={option.value} value={option.value}>

@@ -66,6 +66,12 @@ export const loadCountries = (params) => {
   })
 }
 
+///// SELECTORS //////
+//===================================================
+export const getCountries = createSelector(
+  state => state.entities.countries,
+  countries => countries.list.results.rows
+);
 
 
 // export const loadCountries = (params) => (dispatch, getState) => {
@@ -83,8 +89,7 @@ export const loadCountries = (params) => {
 // }
 
 
-///// SELECTORS //////
-//===================================================
+
 
 
 

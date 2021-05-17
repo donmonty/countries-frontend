@@ -1,19 +1,19 @@
 //import logo from './logo.svg';
 import './App.css';
-//import SearchBar from './components/SearchBar/SearchBar';
 
 import configureStore from "./store/configureStore";
 import { Provider } from "react-redux";
-import Countries from './components/Countries';
+//import Countries from './components/Countries';
 import Bar from './components/SearchBar/Bar'
+import Countries from './pages/Countries/Countries'
 
 const store = configureStore();
 
 function App() {
   return (
     <Provider store={store}>
-      {/* <Countries /> */}
-      <Bar/>
+      <Countries />
+      {/* <Bar/> */}
 
     </Provider>
     // <div className="App">

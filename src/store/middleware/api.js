@@ -8,10 +8,9 @@ const api = ({ dispatch, getState }) => next => async action => {
 
   // Check if submited search params equal the last search query stored in the Redux store
   // If they are different, we must make a new query to the database
-  const latestQuery = getState().lastQuery;
-  console.log("GET STATE", latestQuery)
-  //const submitedQuery = {...lastQuery, ...params };
-  if (latestQuery === params) return next(action);
+  // const latestQuery = getState().entities.countries.lastQuery;
+  // console.log("GET STATE", latestQuery)
+  // if (latestQuery === params) return next(action);
   
   if (onStart) dispatch({ type: onStart });
 
@@ -19,25 +18,28 @@ const api = ({ dispatch, getState }) => next => async action => {
 
   // NOTES:
   //=======================
-  // We must use separate axios api calls for different purposes:
-  // - Fetching countries
-  // - Posting activities
+  // We use an axios config object to handle different request scenarios 
 
-  // CASE 1: FETCH COUNTRIES
-  if (method === 'GET') {
+  //if (method === 'GET') {
 
     try {
-      const response = await axios.get(
-        "http://localhost:3003" + url,  
-        {
-          params: {
-            name: params.name,
-            continent: params.continent,
-            activity: params.activity,
-            order: params.order
-          }
-        }
-      );
+      const response = await axios({
+        method,
+        url: "http://localhost:3003" + url,
+        params: { ...params },
+        data
+      })
+      // const response = await axios.get(
+      //   "http://localhost:3003" + url,  
+      //   {
+      //     params: {
+      //       name: params.name,
+      //       continent: params.continent,
+      //       activity: params.activity,
+      //       order: params.order
+      //     }
+      //   }
+      // );
   
       // General
       dispatch(actions.apiCallSuccess(response.data));
@@ -50,7 +52,7 @@ const api = ({ dispatch, getState }) => next => async action => {
       // Specific
       if (onError) dispatch({ type: onError, payload: error.message });
     }
-  }
+  //}
 }
 
 export default api;
