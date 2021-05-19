@@ -12,14 +12,16 @@ import { loadActivities, getActivities } from "../../store/activities";
 
 function Bar () {
 
+  const dispatch = useDispatch();
+  //const lastQuery = useSelector(countries => countries.lastQuery);
+  const activities = useSelector(getActivities);
+
   // Fecth activities from the API on load
   useEffect(() => {
     dispatch(loadActivities())
   }, []);
 
-  const dispatch = useDispatch();
-  //const lastQuery = useSelector(countries => countries.lastQuery);
-  const activities = useSelector(getActivities);
+  
 
   const continentOptions = [
     { key: 'All continents', value: null },
@@ -31,10 +33,10 @@ function Bar () {
   ];
 
   const sortOptions = [
-    { key: 'Name ASC', value: 'alphaUp' },
-    { key: 'Name DESC', value: 'alphaDown' },
-    { key: 'Most populated', value: 'popUp' },
-    { key: 'Least populated', value: 'popDown' }
+    { key: 'Name ASC', value: 'nameUp' },
+    { key: 'Name DESC', value: 'nameDown' },
+    { key: 'Most populated', value: 'popDown' },
+    { key: 'Least populated', value: 'popUp' }
   ];
 
   const initialValues = {

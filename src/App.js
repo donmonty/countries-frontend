@@ -1,37 +1,27 @@
 //import logo from './logo.svg';
+import React from 'react'
 import './App.css';
 
 import configureStore from "./store/configureStore";
-import { Provider } from "react-redux";
+//import { Provider } from "react-redux";
+//import { BrowserRouter } from 'react-router-dom';
 //import Countries from './components/Countries';
-import Bar from './components/SearchBar/Bar'
+//import Bar from './components/SearchBar/Bar'
+import { Route } from "react-router-dom";
 import Countries from './pages/Countries/Countries'
+import CountryDetailPage from "./pages/CountryDetail/CountryDetail"
+import AddActivity from "./pages/AddActivity/AddActivity"
 
-const store = configureStore();
+//const store = configureStore();
 
 function App() {
   return (
-    <Provider store={store}>
-      <Countries />
-      {/* <Bar/> */}
-
-    </Provider>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    <React.Fragment>
+      <Route exact path="/" component={Countries} />
+      <Route path="/countries/:code" component={CountryDetailPage} />
+      <Route path="/activities/add" component={AddActivity} />
+    </React.Fragment>
+    
   );
 }
 

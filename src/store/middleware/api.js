@@ -29,21 +29,10 @@ const api = ({ dispatch, getState }) => next => async action => {
         params: { ...params },
         data
       })
-      // const response = await axios.get(
-      //   "http://localhost:3003" + url,  
-      //   {
-      //     params: {
-      //       name: params.name,
-      //       continent: params.continent,
-      //       activity: params.activity,
-      //       order: params.order
-      //     }
-      //   }
-      // );
-  
+      
       // General
       dispatch(actions.apiCallSuccess(response.data));
-      dispatch({ type: 'countries/countriesQueryReceived', payload: params });
+      // dispatch({ type: 'countries/countriesQueryReceived', payload: params });
       // Specific
       if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
     } catch (error) {

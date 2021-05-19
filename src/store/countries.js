@@ -15,7 +15,10 @@ const slice = createSlice({
       order: null
     },
     loading: false,
-    lastFetch: null
+    lastFetch: null,
+    countryDetail: {},
+    countryActivities: [],
+    countryNames: []
   },
   reducers: {
 
@@ -24,18 +27,37 @@ const slice = createSlice({
     },
 
     countriesReceived: (countries, action) => {
-      countries.list = action.payload;
+      countries.list = action.payload.results.rows;
       countries.loading = false;
       //countries.lastFetch = Date.now();
     },
 
     countriesRequestFailed: (countries, action) => {
       countries.loading = false;
+      countries.list = [];
     },
 
     countriesQueryReceived: (countries, action) => {
       countries.lastQuery = action.payload;
-    }
+    },
+    //////////////////////////////////////////////////
+
+    detailRequested: (countries, action) => {
+      countries.loading = true;
+    },
+
+    detailReceived: (countries, action) => {
+      countries.countryDetail = action.payload.data;
+      countries.countryActivities = action.payload.data.Activities;
+      countries.loading = false;
+    },
+
+    detialRequestFailed: (countries, action) => {
+      countries.loading = false;
+      countries.countryDetail = [];
+    },
+
+    //////////////////////////////////////////////////
 
   }
 });
@@ -45,7 +67,11 @@ export const {
   countriesRequested,
   countriesReceived,
   countriesRequestFailed,
-  countriesQueryReceived
+  countriesQueryReceived,
+  //////////////////////
+  detailRequested,
+  detailReceived,
+  detialRequestFailed
 } = slice.actions;
 
 // Export the reducer
@@ -66,12 +92,39 @@ export const loadCountries = (params) => {
   })
 }
 
+export const getCountryByCode = (code) => {
+  return apiCallBegan({
+    url: url + '/' + code,
+    method: 'GET',
+    onStart: detailRequested.type,
+    onSuccess: detailReceived.type,
+    onError: detialRequestFailed.type
+  })
+}
+
 ///// SELECTORS //////
 //===================================================
 export const getCountries = createSelector(
   state => state.entities.countries,
-  countries => countries.list.results.rows
+  countries => countries.list
 );
+
+export const selectCountryDetail = createSelector(
+  state => state.entities.countries,
+  countries => countries.countryDetail
+)
+
+export const selectCountryActivities = createSelector(
+  state => state.entities.countries,
+  countries => countries.countryActivities
+)
+
+export const selectCountryNames = createSelector(
+  state => state.entities.countries,
+  countries => countries.list.map(country => {
+    return { key: country.name, value: country.name }
+  })
+)
 
 
 // export const loadCountries = (params) => (dispatch, getState) => {
