@@ -30,7 +30,7 @@ const initialValues = {
   name: '',
   difficulty: '1',
   duration: '',
-  season: 'Spring',
+  season: 'spring',
   countries: ['Afghanistan']
 }
 

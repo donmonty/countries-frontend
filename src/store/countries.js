@@ -74,10 +74,6 @@ const slice = createSlice({
     },
 
     paginationInfoSet: (countries, action) => {
-      console.log("////////////////////////////////")
-      console.log("Inside the pagination reducer!")
-      console.log("Payload: ", action.payload)
-
       countries.prevPage = action.payload.prevPage;
       countries.nextPage = action.payload.nextPage;
       countries.currentPage = action.payload.currentPage;
