@@ -7,31 +7,8 @@ import styles from './Bar.module.css';
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCountriesSearch } from "../../store/countries";
+import { loadCountries } from "../../store/countries";
 import { loadActivities, getActivities } from "../../store/activities";
-
-const continentOptions = [
-  { key: 'All continents', value: null },
-  { key: 'Americas', value: 'Americas' },
-  { key: 'Europe', value: 'Europe' },
-  { key: 'Asia', value: 'Asia' },
-  { key: 'Africa', value: 'Africa' },
-  { key: 'Oceania', value: 'Oceania' }
-];
-
-const sortOptions = [
-  { key: 'Name ASC', value: 'nameUp' },
-  { key: 'Name DESC', value: 'nameDown' },
-  { key: 'Most populated', value: 'popDown' },
-  { key: 'Least populated', value: 'popUp' }
-];
-
-const initialValues = {
-  name: "",
-  continent: "",
-  activity: ""
-}
-
 
 function Bar () {
 
@@ -39,23 +16,45 @@ function Bar () {
   //const lastQuery = useSelector(countries => countries.lastQuery);
   const activities = useSelector(getActivities);
 
-  const onSubmit = values => {
-    console.log('Form data', values)
-    //console.log('Saved data', JSON.parse(JSON.stringify(values)))
-    dispatch(loadCountriesSearch({
-      name: values.name,
-      activity: values.activity,
-      continent: values.continent,
-      order: values.order,
-      source: 'search'
-    }))
-  }
-
   // Fecth activities from the API on load
   useEffect(() => {
     dispatch(loadActivities())
   }, []);
 
+  
+
+  const continentOptions = [
+    { key: 'All continents', value: null },
+    { key: 'Americas', value: 'Americas' },
+    { key: 'Europe', value: 'Europe' },
+    { key: 'Asia', value: 'Asia' },
+    { key: 'Africa', value: 'Africa' },
+    { key: 'Oceania', value: 'Oceania' }
+  ];
+
+  const sortOptions = [
+    { key: 'Name ASC', value: 'nameUp' },
+    { key: 'Name DESC', value: 'nameDown' },
+    { key: 'Most populated', value: 'popDown' },
+    { key: 'Least populated', value: 'popUp' }
+  ];
+
+  const initialValues = {
+    name: null,
+    continent: null,
+    activity: null
+  }
+  
+  const onSubmit = values => {
+    console.log('Form data', values)
+    //console.log('Saved data', JSON.parse(JSON.stringify(values)))
+    dispatch(loadCountries({
+      name: values.name,
+      activity: values.activity,
+      continent: values.continent,
+      order: values.order
+    }))
+  }
 
   return (
     <Formik

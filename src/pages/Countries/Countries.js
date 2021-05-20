@@ -6,14 +6,24 @@ import { Link } from 'react-router-dom';
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCountries } from "../../store/countries";
+import { loadCountries, loadCountriesSearch } from "../../store/countries";
 import { getCountries } from "../../store/countries";
+import { selectSearchParams } from "../../store/countries";
+import { selectPrevPage } from "../../store/countries";
+import { selectNextPage } from "../../store/countries";
+
 
 function Countries() {
 
   const dispatch = useDispatch()
-  const countries = useSelector(getCountries);
   
+  // Selectors
+  const countries = useSelector(getCountries);
+  const latestSearchParams = useSelector(selectSearchParams);
+  const prevPage = useSelector(selectPrevPage);
+  const nextPage = useSelector(selectNextPage);
+  //const currentPage = useSelector(state => state.entities.countries.currentPage);
+
   //console.log("COUNTRIES", countries)
   
   // This page should load all the countries via loadCountries(), instead
@@ -54,6 +64,11 @@ function Countries() {
             )
           }) : (<h3>No results found!</h3>)
         }
+      </section>
+
+      <section className={styles.resultsNav} >
+        {prevPage && <button className={styles.resultsButton} onClick={() => dispatch(loadCountriesSearch({...latestSearchParams, page: prevPage, limit: 10 }))} >Previous</button>}
+        {nextPage && <button className={styles.resultsButton} onClick={() => dispatch(loadCountriesSearch({...latestSearchParams, page: nextPage, limit: 10 }))} >Next</button>}  
       </section>
     </div>
       

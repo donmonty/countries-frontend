@@ -12,4 +12,19 @@
   align-content: flex-start;
   flex-wrap: wrap;
   padding: 20px;
+  min-height: 600px;
+}
+
+.resultsNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.resultsButton {
+  padding: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: #E5E7EB;
 }

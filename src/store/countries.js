@@ -10,15 +10,27 @@ const slice = createSlice({
     list: [],
     lastQuery: {
       name: null,
-      continent: 'Americas',
-      activity: 'Ski',
+      continent: null,
+      activity: null,
       order: null
     },
     loading: false,
     lastFetch: null,
     countryDetail: {},
     countryActivities: [],
-    countryNames: []
+    countryNames: [],
+    ////////////////////////
+    prevPage: null,
+    nextPage: 2,
+    currentPage: 1,
+    pages: null,
+    limit: 10,
+    searchParams: {
+      name: null,
+      continent: null,
+      activity: null,
+      order: null
+    }
   },
   reducers: {
 
@@ -29,7 +41,6 @@ const slice = createSlice({
     countriesReceived: (countries, action) => {
       countries.list = action.payload.results.rows;
       countries.loading = false;
-      //countries.lastFetch = Date.now();
     },
 
     countriesRequestFailed: (countries, action) => {
@@ -58,7 +69,21 @@ const slice = createSlice({
     },
 
     //////////////////////////////////////////////////
+    searchQuerySet: (countries, action) => {
+      countries.searchParams = action.payload;
+    },
 
+    paginationInfoSet: (countries, action) => {
+      console.log("////////////////////////////////")
+      console.log("Inside the pagination reducer!")
+      console.log("Payload: ", action.payload)
+
+      countries.prevPage = action.payload.prevPage;
+      countries.nextPage = action.payload.nextPage;
+      countries.currentPage = action.payload.currentPage;
+      countries.pages = action.payload.pages;
+      countries.limit = action.payload.limit;
+    } 
   }
 });
 
@@ -71,7 +96,10 @@ export const {
   //////////////////////
   detailRequested,
   detailReceived,
-  detialRequestFailed
+  detialRequestFailed,
+  ///////////////////
+  searchQuerySet,
+  paginationInfoSet
 } = slice.actions;
 
 // Export the reducer
@@ -102,6 +130,18 @@ export const getCountryByCode = (code) => {
   })
 }
 
+export const loadCountriesSearch = (params) => {
+  return apiCallBegan({
+    url,
+    method: 'GET',
+    params,
+    onStart: countriesRequested.type,
+    onSuccess: countriesReceived.type,
+    onError: countriesRequestFailed.type,
+    source: 'search'
+  })
+}
+
 ///// SELECTORS //////
 //===================================================
 export const getCountries = createSelector(
@@ -126,6 +166,20 @@ export const selectCountryNames = createSelector(
   })
 )
 
+export const selectSearchParams = createSelector(
+  state => state.entities.countries,
+  countries => countries.searchParams
+)
+
+export const selectPrevPage = createSelector(
+  state => state.entities.countries,
+  countries => countries.prevPage
+)
+
+export const selectNextPage = createSelector(
+  state => state.entities.countries,
+  countries => countries.nextPage
+)
 
 // export const loadCountries = (params) => (dispatch, getState) => {
 //   //const { lastFetch } = getState().entities.countries;
