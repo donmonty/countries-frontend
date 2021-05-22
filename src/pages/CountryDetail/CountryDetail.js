@@ -47,7 +47,7 @@ function CountryDetailPage() {
           />
         </section>
         <section className={styles.activities}>
-          <h1>Country Activities</h1>
+          <h1 className={styles.title} >Country Activities</h1>
           {/* {
             (country.Activities.length !== 0) ?
               country.Activities.map(activity => {

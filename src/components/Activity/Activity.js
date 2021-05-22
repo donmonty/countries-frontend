@@ -13,16 +13,16 @@ function Activity({ name, difficulty, duration, season }) {
 
       <div className={styles.details}>
         <div className={styles.specText}>
-          <h6>DIFFICULTY</h6>
-          <h2>{difficulty}</h2>
+          <h6 className={styles.specTextSmall}>DIFFICULTY</h6>
+          <h2 className={styles.specTextBig}>{difficulty}</h2>
         </div>
         <div className={styles.specText}>
-          <h6>DURATION</h6>
-          <h2>{duration}</h2>
+          <h6 className={styles.specTextSmall}>DURATION</h6>
+          <h2 className={styles.specTextBig}>{duration}</h2>
         </div>
-        <div className={styles.specImage}>
-          <h6>SEASON</h6>
-          <img src={winter} />
+        <div className={styles.specText}>
+          <h6 className={styles.specTextSmall}>SEASON</h6>
+          <h2 className={styles.specTextBig}>{season}</h2>
         </div>
       </div>
 

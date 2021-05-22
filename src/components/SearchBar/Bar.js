@@ -12,7 +12,7 @@ import { loadCountriesSearch } from "../../store/countries";
 import { loadActivities, getActivities } from "../../store/activities";
 
 const continentOptions = [
-  { key: 'All continents', value: null },
+  { key: 'All continents', value: "" },
   { key: 'Americas', value: 'Americas' },
   { key: 'Europe', value: 'Europe' },
   { key: 'Asia', value: 'Asia' },
@@ -84,7 +84,7 @@ function Bar () {
             label='Activity'
             name='activity'
             options={activities}
-            // defaultValue={{ key: "All activities", value: null }}
+            defaultValue={{ key: "All activities", value: "" }}
           />
 
           <Select

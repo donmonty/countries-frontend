@@ -8,7 +8,7 @@ function Home() {
       <div className={styles.overlay} ></div>
       <div className={styles.section} >
         <h1 className={styles.title} >The Countries Project</h1>
-        <p className={styles.subtitle} >Useless as hell, but at least it's not yet another boring to-do app.</p>
+        <p className={styles.subtitle} >The web's most useless, high-tech and didactic web app. At least it's not yet another boring to-do app.</p>
         <Link to={'/countries'} className={styles.link} >
           <button className={styles.actionButton} >I understand the risks. Let me in!</button>
         </Link>

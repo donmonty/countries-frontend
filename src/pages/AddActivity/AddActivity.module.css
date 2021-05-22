@@ -94,7 +94,7 @@ input[type="text"]{
   font-size: 14px;
 
   /* align-self: flex-start; */
-  max-width: max-content;
+  /* max-width: max-content; */
 }
 
 .submitButton{

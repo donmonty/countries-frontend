@@ -13,6 +13,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
+  color: #60A5FA;
 }
 
 .details {
@@ -32,18 +33,21 @@
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%), 0 -1px 2px 0 rgb(0 0 0 / 10%);
   border-radius: 10px;
   margin-right: 16px;
+  background-color: #F3F4F6;
 }
 
-.specText h6 {
+.specTextSmall {
   margin: 0;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #6B7280;
 }
 
-.specText h2 {
-  margin-top: 0;
+.specTextBig  {
+  margin: 0;
   /* margin-bottom: 10px; */
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color: #60A5FA;
 }
 
 .specImage {

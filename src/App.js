@@ -20,7 +20,7 @@ function App() {
   return (
     <React.Fragment>
       <Route exact path="/" component={Home} />
-      <Route path="/countries" component={Countries} />
+      <Route exact path="/countries" component={Countries} />
       <Route path="/countries/:code" component={CountryDetailPage} />
       <Route path="/activities/add" component={AddActivity} />
       <Route path="/activities/success" component={PostSuccess} />

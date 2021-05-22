@@ -4,6 +4,8 @@
   align-items: center;
   padding: 20px;
   background-color: #F6F75F;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .submitButton {

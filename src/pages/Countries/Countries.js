@@ -32,19 +32,29 @@ function Countries() {
   // when the SEARCH button is pressed
 
   useEffect(() => {
-    dispatch(loadCountries({
-      name: null,
-      activity: null,
-      continent: null,
-      order: null
-    }))
+    dispatch(loadCountriesSearch(latestSearchParams))
   }, []);
+
+  // useEffect(() => {
+  //   dispatch(loadCountries({
+  //     name: null,
+  //     activity: null,
+  //     continent: null,
+  //     order: null
+  //   }))
+  // }, []);
 
   
   return (
     <>
     <div className={styles.container} >
-      <header>
+      <header className={styles.header} >
+        <nav className={styles.navbar} >
+          <ul className={styles.navItems} >
+            <Link className={styles.link} to={'/'}><li className={styles.navLink}><a>Home</a></li></Link>
+            <Link className={styles.link} to={'/activities/add'}><li className={styles.navLink}>Add Activity</li></Link>
+          </ul>
+        </nav>
         <Bar />
       </header>
       <section className={styles.countriesContainer} >
