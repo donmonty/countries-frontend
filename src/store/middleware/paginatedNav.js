@@ -8,7 +8,21 @@ const paginatedNav = ({ dispatch, getState }) => next => action => {
   // console.log("Printing paylod from new middleware", action.payload)
   // console.log("Printing action type from new middleware. Processing: ", action.type)
 
-  if (!action.payload.previous) {
+  if (!action.payload.next && !action.payload.previous) {
+    const currentPage = 1;
+    const prevPage = null;
+    const nextPage = null;
+    const limit = action.payload.count;
+    const pages = 1;
+    dispatch(paginationInfoSet({
+      currentPage,
+      prevPage,
+      nextPage,
+      limit,
+      pages
+    }))
+    return next(action);
+  } else if (!action.payload.previous) {
     // console.log(":::::::::::::::::::::::::::::::::::::::::")
     // console.log("We are at the first page of results!")
     // If there is no previous, we are at the first page of results
@@ -47,7 +61,7 @@ const paginatedNav = ({ dispatch, getState }) => next => action => {
       pages
     }))
     return next(action);
-  } else {
+  } else if (action.payload.next && action.payload.previous) {
     // console.log(":::::::::::::::::::::::::::::::::::::::::")
     // console.log("We are in the middle of results!")
     // If we are not at the first or last page
@@ -56,6 +70,20 @@ const paginatedNav = ({ dispatch, getState }) => next => action => {
     const nextPage = action.payload.next.page;
     const limit = action.payload.next.limit;
     const pages = Math.ceil(action.payload.results.count / limit)
+    dispatch(paginationInfoSet({
+      currentPage,
+      prevPage,
+      nextPage,
+      limit,
+      pages
+    }))
+    return next(action);
+  } else {
+    const currentPage = 1;
+    const prevPage = null;
+    const nextPage = null;
+    const limit = action.payload.count;
+    const pages = 1;
     dispatch(paginationInfoSet({
       currentPage,
       prevPage,

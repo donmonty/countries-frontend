@@ -11,6 +11,7 @@ import { Route } from "react-router-dom";
 import Countries from './pages/Countries/Countries'
 import CountryDetailPage from "./pages/CountryDetail/CountryDetail"
 import AddActivity from "./pages/AddActivity/AddActivity"
+import PostSuccess from "./pages/PostSuccess/PostSuccess"
 
 //const store = configureStore();
 
@@ -20,6 +21,7 @@ function App() {
       <Route exact path="/" component={Countries} />
       <Route path="/countries/:code" component={CountryDetailPage} />
       <Route path="/activities/add" component={AddActivity} />
+      <Route path="/activities/success" component={PostSuccess} />
     </React.Fragment>
     
   );

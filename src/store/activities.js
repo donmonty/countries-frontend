@@ -6,7 +6,9 @@ const slice = createSlice({
   name: 'activities',
   initialState: {
     list: ['Pyramids', 'Stargazing', 'Rapids'],
-    loading: false
+    loading: false,
+    activityCreated: false,
+    activityPostError: false
   },
   reducers: {
 
@@ -22,6 +24,30 @@ const slice = createSlice({
     activitiesRequestFailed: (activities, action) => {
       activities.loading = false;
     },
+
+    /////////////////////////////////////////////
+
+    activityAddedRequested: (activities, action) => {
+      activities.loading = true;
+    },
+
+    activityAdded: (activities, action) => {
+      //activities.list.push(action.payload.name);
+      activities.activityCreated = true;
+    },
+
+    activityAddedFailed: (activities, action) => {
+      activities.activityCreated = false;
+      activities.activityPostError = true;
+    },
+
+    activityAddedReset: (activities, action) => {
+      activities.activityCreated = false;
+    },
+
+    activityPostErrorReset: (activities, action) => {
+      activities.activityPostError = false;
+    }
   }
 
 });
@@ -30,7 +56,12 @@ const slice = createSlice({
 export const {
   activitiesRequested,
   activitiesReceived,
-  activitiesRequestFailed
+  activitiesRequestFailed,
+  activityAddedRequested,
+  activityAdded,
+  activityAddedFailed,
+  activityAddedReset,
+  activityPostErrorReset
 } = slice.actions;
 
 // Export the reducer
@@ -50,6 +81,17 @@ export const loadActivities = () => {
   })
 }
 
+export const createActivity = (data) => {
+  return apiCallBegan({
+    url,
+    method: 'POST',
+    data,
+    onStart: activityAddedRequested.type,
+    onSuccess: activityAdded.type,
+    onError: activityAddedFailed.type
+  })
+}
+
 /////// Selectors /////////////
 //===============================================
 export const getActivities = createSelector(
@@ -58,3 +100,13 @@ export const getActivities = createSelector(
     return { key: activity.name, value: activity.name }
   })
 );
+
+export const selectActivityCreatedStatus = createSelector(
+  state => state.entities.activities,
+  activities => activities.activityCreated
+)
+
+export const selectActivityPostError = createSelector(
+  state => state.entities.activities,
+  activities => activities.activityPostError
+)
