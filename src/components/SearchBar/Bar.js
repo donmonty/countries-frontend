@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import Select from './Select';
 import Input from './Input';
+import world from "../../images/world.png"
 import styles from './Bar.module.css';
 
 import { useEffect } from "react";
@@ -65,6 +66,9 @@ function Bar () {
     >
       {formik => (
         <Form className={styles.container}>
+
+          <img className={styles.logo} src={world} />
+
           <Input
             label='Country name'
             name='name'

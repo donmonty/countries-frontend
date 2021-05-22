@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Form, FieldArray, ErrorMessage, Field } from 'formik'
 import * as Yup from 'yup'
 import Select from '../../components/SearchBar/Select';
+import NavBar from "../../components/NavBar/NavBar"
 import { Redirect } from "react-router-dom";
 import styles from './AddActivity.module.css'
 
@@ -91,7 +92,7 @@ function AddActivity() {
   return (
     <div>
     {activityCreatedStatus ? <Redirect to="/activities/success" /> : null}  
-    <header className={styles.header} ></header>
+    <NavBar />
     <div className={styles.content} >
       <Formik
         initialValues={initialValues}
@@ -115,6 +116,7 @@ function AddActivity() {
                 <div className={styles.row}>
                   <p className={styles.label} >Difficulty</p>
                     <Select
+                      className={styles.select}
                       label='Difficulty'
                       name='difficulty'
                       options={difficultyOptions}
@@ -134,6 +136,7 @@ function AddActivity() {
                 <div className={styles.row}>
                   <p className={styles.label} >Season</p>
                   <Select
+                    className={styles.select}
                     label='Season'
                     name='season'
                     options={seasonOptions}

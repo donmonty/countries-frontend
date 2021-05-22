@@ -1,12 +1,13 @@
 import React from 'react'
 import check from "../../images/green-check.png"
 import { Link } from 'react-router-dom';
+import NavBar from "../../components/NavBar/NavBar"
 import styles from "./PostSuccess.module.css"
 
 function PostSuccess() {
   return (
     <React.Fragment>
-      <header className={styles.header} ></header>
+      <NavBar />
       <div className={styles.content} >
         <div className={styles.card} >
           <div  >

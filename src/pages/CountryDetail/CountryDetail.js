@@ -1,6 +1,7 @@
 import React from 'react'
 import CountryDetail from '../../components/CountryDetail/CountryDetail'
 import Activity from '../../components/Activity/Activity'
+import NavBar from "../../components/NavBar/NavBar"
 
 import styles from './CountryDetail.module.css'
 import { useParams } from "react-router-dom";
@@ -30,7 +31,8 @@ function CountryDetailPage() {
 
   return (
     <React.Fragment>
-    <header className={styles.header} ></header>  
+    {/* <header className={styles.header} ></header>   */}
+      <NavBar />
       <div className={styles.content} >
         <section >
           <CountryDetail

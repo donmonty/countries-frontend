@@ -8,6 +8,7 @@ import configureStore from "./store/configureStore";
 //import Countries from './components/Countries';
 //import Bar from './components/SearchBar/Bar'
 import { Route } from "react-router-dom";
+import Home from './pages/Home/Home'
 import Countries from './pages/Countries/Countries'
 import CountryDetailPage from "./pages/CountryDetail/CountryDetail"
 import AddActivity from "./pages/AddActivity/AddActivity"
@@ -18,7 +19,8 @@ import PostSuccess from "./pages/PostSuccess/PostSuccess"
 function App() {
   return (
     <React.Fragment>
-      <Route exact path="/" component={Countries} />
+      <Route exact path="/" component={Home} />
+      <Route path="/countries" component={Countries} />
       <Route path="/countries/:code" component={CountryDetailPage} />
       <Route path="/activities/add" component={AddActivity} />
       <Route path="/activities/success" component={PostSuccess} />
