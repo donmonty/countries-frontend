@@ -42,11 +42,13 @@ const api = ({ dispatch, getState }) => next => async action => {
       // dispatch({ type: 'countries/countriesQueryReceived', payload: params });
       // Specific
       if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
+      return next(action);
     } catch (error) {
       // General
       dispatch(actions.apiCallFailed(error.message));
       // Specific
       if (onError) dispatch({ type: onError, payload: error.message });
+      return next(action);
     }
   //}
 }

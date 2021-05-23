@@ -26,8 +26,8 @@ function CountryDetailPage() {
     dispatch(getCountryByCode(code));
   }, [])
 
-  console.log("Country Detail:", country);
-  console.log("Activities", activities)
+  // console.log("Country Detail:", country);
+  // console.log("Activities", activities)
 
   return (
     <React.Fragment>

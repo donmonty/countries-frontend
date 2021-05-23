@@ -72,8 +72,8 @@ function AddActivity() {
   const handleSubmit = (values) => {
     console.log('Form data', values)
     // Dispatch the action to make the API call
-    //dispatch(createActivity(values));
-    dispatch(activityAdded());
+    dispatch(createActivity(values));
+    //dispatch(activityAdded());
   }
 
   useEffect(() => {

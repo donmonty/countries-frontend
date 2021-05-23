@@ -5,7 +5,7 @@ import { createSelector } from "reselect";
 const slice = createSlice({
   name: 'activities',
   initialState: {
-    list: ['Pyramids', 'Stargazing', 'Rapids'],
+    list: [],
     loading: false,
     activityCreated: false,
     activityPostError: false
@@ -17,6 +17,7 @@ const slice = createSlice({
     },
 
     activitiesReceived: (activities, action) => {
+      //console.log("PAYLOAD", action.payload)
       activities.list = action.payload;
       activities.loading = false;
     },
@@ -32,7 +33,7 @@ const slice = createSlice({
     },
 
     activityAdded: (activities, action) => {
-      //activities.list.push(action.payload.name);
+      activities.list.push(action.payload.name);
       activities.activityCreated = true;
     },
 
