@@ -189,7 +189,7 @@ function AddActivity() {
                 <button
                   type='submit'
                   className={styles.submitButton}
-                  // disabled={!formik.isValid || formik.isSubmitting}
+                  disabled={!formik.isValid || formik.isSubmitting}
                 >
                   Save
                 </button>
