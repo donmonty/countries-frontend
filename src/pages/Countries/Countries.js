@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCountries, loadCountriesSearch } from "../../store/countries";
+import { loadCountriesSearch } from "../../store/countries";
 import { getCountries } from "../../store/countries";
 import { selectSearchParams } from "../../store/countries";
 import { selectPrevPage } from "../../store/countries";

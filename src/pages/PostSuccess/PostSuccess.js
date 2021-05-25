@@ -11,7 +11,7 @@ function PostSuccess() {
       <div className={styles.content} >
         <div className={styles.card} >
           <div  >
-            <img className={styles.check} src={check}/>
+            <img className={styles.check} src={check} alt="check"/>
           </div>
           <h2>Activity created successfully!</h2>
           <Link to={'/activities/add'}>

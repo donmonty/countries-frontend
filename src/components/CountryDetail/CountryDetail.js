@@ -1,25 +1,15 @@
 import React from 'react'
 import styles from './CountryDetail.module.css'
-// import { useParams } from "react-router-dom";
-
-// import { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-
-// Import selectors
-//import { getCountryByCode, selectCountryDetail } from "../../store/countries";
 
 
 function CountryDetail(props) {
 
-  // const dispatch = useDispatch();
-  // const country = useSelector(selectCountryDetail);
-  // const { code } = useParams();
+  const formatNumber = (number, description) => {
+    return Number(parseFloat(number).toFixed(2)).toLocaleString('en', { minimumFractionDigits: 0 }) + " " + description;
+  }
 
-  // useEffect(() => {
-  //   dispatch(getCountryByCode(code));
-  // }, [])
-
-  // console.log("Country Detail:", country);
+  const km2 = formatNumber(props.area, "km2");
+  const habitants = formatNumber(props.population, '');
 
 
   return (
@@ -27,7 +17,7 @@ function CountryDetail(props) {
     <div className={styles.container} >
       <section className={styles.countryContainer} >
         <div className={styles.flagContainer} >
-          <img className={styles.flag} src={props.flag} />
+          <img className={styles.flag} src={props.flag} alt="flag" />
         </div>
 
         <div className={styles.countryInfo} >
@@ -55,12 +45,12 @@ function CountryDetail(props) {
 
           <div className={styles.countrySpec} >
             <h6 className={styles.subtitle}>AREA</h6>
-            <h4 className={styles.title}>{props.area}</h4>
+            <h4 className={styles.title}>{km2}</h4>
           </div>
 
           <div className={styles.countrySpec} >
             <h6 className={styles.subtitle}>POPULATION</h6>
-            <h4 className={styles.title}>{props.population}</h4>
+            <h4 className={styles.title}>{habitants}</h4>
           </div>
         </div>
 

@@ -2,11 +2,6 @@
 import React from 'react'
 import './App.css';
 
-import configureStore from "./store/configureStore";
-//import { Provider } from "react-redux";
-//import { BrowserRouter } from 'react-router-dom';
-//import Countries from './components/Countries';
-//import Bar from './components/SearchBar/Bar'
 import { Route } from "react-router-dom";
 import Home from './pages/Home/Home'
 import Countries from './pages/Countries/Countries'

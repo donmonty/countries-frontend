@@ -28,7 +28,8 @@ const paginatedNav = ({ dispatch, getState }) => next => action => {
     // If there is no previous, we are at the first page of results
     const currentPage = action.payload.next.page - 1;
     const prevPage = null;
-    const limit = action.payload.next.limit;
+    const limit = 10;
+    // const limit = action.payload.next.limit;
     const pages = Math.ceil(action.payload.results.count / limit)
     let nextPage;
     pages === 1 ? nextPage = null : nextPage = action.payload.next.page 
@@ -65,7 +66,8 @@ const paginatedNav = ({ dispatch, getState }) => next => action => {
     // console.log(":::::::::::::::::::::::::::::::::::::::::")
     // console.log("We are in the middle of results!")
     // If we are not at the first or last page
-    const currentPage = action.payload.next.page - (action.payload.previous.page + 1);
+    const currentPage = (action.payload.next.page - 1)
+    //const currentPage = (action.payload.next.page - action.payload.previous.page) + 1;
     const prevPage = action.payload.previous.page;
     const nextPage = action.payload.next.page;
     const limit = action.payload.next.limit;

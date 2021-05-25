@@ -8,7 +8,7 @@ function NavBar() {
     <div className={styles.container} >
       <nav className={styles.nav} >
         <Link to={'/countries'}>
-          <img src={world} className={styles.logo} />
+          <img src={world} className={styles.logo} alt="logo"/>
         </Link>
       </nav>
     </div>

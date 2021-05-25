@@ -15,11 +15,11 @@ import { selectCountryNames } from "../../store/countries";
 
 // Activity actions and selectors
 import { createActivity } from "../../store/activities";
-import { activityAdded } from "../../store/activities";
+//import { activityAdded } from "../../store/activities";
 import { activityAddedReset } from "../../store/activities";
 import { activityPostErrorReset } from "../../store/activities";
 import { selectActivityCreatedStatus } from "../../store/activities";
-import { selectActivityPostError } from "../../store/activities";
+//import { selectActivityPostError } from "../../store/activities";
 
 
 ///////////////////////////////////////////
@@ -67,7 +67,7 @@ function AddActivity() {
   const dispatch = useDispatch();
   const countryNames = useSelector(selectCountryNames);
   const activityCreatedStatus = useSelector(selectActivityCreatedStatus);
-  const activityApiErrorStatus = useSelector(selectActivityPostError);
+  //const activityApiErrorStatus = useSelector(selectActivityPostError);
 
   const handleSubmit = (values) => {
     console.log('Form data', values)

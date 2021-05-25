@@ -1,6 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import * as Yup from 'yup'
+//import * as Yup from 'yup'
 import Select from './Select';
 import Input from './Input';
 import world from "../../images/world.png"
@@ -67,7 +67,7 @@ function Bar () {
       {formik => (
         <Form className={styles.container}>
 
-          <img className={styles.logo} src={world} />
+          <img className={styles.logo} src={world} alt="logo" />
 
           <Input
             label='Country name'

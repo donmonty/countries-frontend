@@ -1,9 +1,6 @@
 import React from 'react'
 import styles from './Activity.module.css'
-import spring from '../../images/spring.png'
-import summer from '../../images/summer.png'
-import autumn from '../../images/autumn.png'
-import winter from '../../images/winter.png'
+
 
 function Activity({ name, difficulty, duration, season }) {
   return (

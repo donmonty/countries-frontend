@@ -4,7 +4,7 @@ import reducer from './reducer';
 import api from './middleware/api';
 import paginatedNav from './middleware/paginatedNav';
 
-export default function () {
+export default function configStore () {
   return configureStore({
     reducer,
     middleware: [ ...getDefaultMiddleware(), api, paginatedNav ]
