@@ -8,6 +8,7 @@ import Countries from './pages/Countries/Countries'
 import CountryDetailPage from "./pages/CountryDetail/CountryDetail"
 import AddActivity from "./pages/AddActivity/AddActivity"
 import PostSuccess from "./pages/PostSuccess/PostSuccess"
+import PostError from "./pages/PostError/PostError"
 
 //const store = configureStore();
 
@@ -19,6 +20,7 @@ function App() {
       <Route path="/countries/:code" component={CountryDetailPage} />
       <Route path="/activities/add" component={AddActivity} />
       <Route path="/activities/success" component={PostSuccess} />
+      <Route path="/activities/error" component={PostError} />
     </React.Fragment>
     
   );

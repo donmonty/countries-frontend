@@ -108,6 +108,7 @@ input[type="text"]{
   margin-right: 10px;
   font-size: 14px;
   color: white;
+  cursor: pointer;
 }
 
 .actionButton{
@@ -122,6 +123,7 @@ input[type="text"]{
   font-size: 14px;
   font-weight: 500;
   color: #6B7280;
+  cursor: pointer;
 }
 
 .country {
