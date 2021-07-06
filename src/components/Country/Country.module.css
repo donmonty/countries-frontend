@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 264px;
+  height: 300px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%), 0 -1px 2px 0 rgb(0 0 0 / 10%);
+}
+
+.flagContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.flag {
+  height: 190px;
+  width: 264px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: blue;
+}
+
+.countryInfo {
+  height: 100%;
+  padding: 10px;
+}
+
+.countryName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  
+}
+
+.continent {
+  font-size: 1rem;
+  margin: 0;
+}

@@ -43,3 +43,18 @@ dispatch(loadCountries({
 
 - Before requesting data from the API, "loadCountries" should check if the search params have changed.
 
+
+/////////////////////////////////////////
+// Calculate pages (number of pages): number of results / limit
+      function totalPages(count, limit) {
+        let remainder = count % limit;
+        
+        if (remainder === 0) {
+            let pages = count / limit;
+            return pages;
+        }
+        let adjustedCount = count - remainder;
+        let pages = (adjustedCount / limit) + 1;
+        return pages;
+      }
+

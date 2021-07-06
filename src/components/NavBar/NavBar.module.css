@@ -1,0 +1,27 @@
+
+.container {
+  background-color: #F6F75F;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  width: 1180px;
+  padding: 10px;
+  /* display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+  height: 100px;
+  padding: 10px;
+  /* width: 100%; */
+  /* max-width: 1180px;
+  background-color: #F6F75F; */ 
+}
+
+.logo {
+  margin-left: 40px;
+}

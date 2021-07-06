@@ -1,14 +1,24 @@
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 20px;
   background-color: #F6F75F;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .submitButton {
-  background-color: #5F76F8;
+  background: #3B82F6;
+  height: 40px;
   width: 100px;
   color: white;
   border-radius: 10px;
   font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.logo {
+  margin-right: 40px;
 }

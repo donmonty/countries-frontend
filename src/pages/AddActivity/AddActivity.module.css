@@ -1,0 +1,145 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  background-color: #F9FAFB;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.header {
+  background-color: #F6F75F;
+  height: 100px;
+  width: 100%;
+}
+
+.cardForm{
+  width: 500px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+}
+
+.formTitle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  background: #F6F75F;
+  border-radius: 10px 10px 0 0;
+  color:#4B5563;
+}
+
+.row{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  padding: 10px;
+  /* width: 100%; */
+  min-width: 400px;
+}
+
+.rowWrapper {
+  display: flex;
+  justify-content: flex-start;
+  /* padding: 10px; */
+}
+
+.label {
+  margin: 0 0 10px 15px;
+  /* padding-left: 15px; */
+}
+
+.error {
+  margin: 0 0 10px 15px;
+  color: #EF4444;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+input[type="text"]{
+  appearance: none;
+  width: 100%;
+  margin: 0 15px;
+  height: 35px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #e8ebed;
+  color: #576366;
+  font-size: 14px;
+}
+
+.select {
+  /* flex: 1 0 65%; */
+  /* min-width: 0; */
+  /* appearance: none; */
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */
+  /* width: 100%; */
+  min-width: 400px;
+  margin: 0 15px;
+  height: 35px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #e8ebed;
+  color: #576366;
+  font-size: 14px;
+
+  /* align-self: flex-start; */
+  /* max-width: max-content; */
+}
+
+.submitButton{
+  display: inline-block;
+  height: 40px;
+  /* line-height: 40px; */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 50px;
+  background: #27ae60;
+  margin-right: 10px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.actionButton{
+  display: inline-block;
+  height: 40px;
+  /* line-height: 40px; */
+  border: 1px solid #9CA3AF;
+  border-radius: 5px;
+  padding: 5px 20px;
+  background: #E5E7EB;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  cursor: pointer;
+}
+
+.country {
+  display: flex;
+}
+
+.rule{
+  height: 2px;
+  background: #e8ebed;
+  margin: 0px 35px;
+  margin: 10px 0;
+}
+
+.otherContainer {
+  width: 500px;
+}
+
+
+

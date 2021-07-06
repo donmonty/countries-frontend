@@ -10,18 +10,18 @@
 }
 
 .container {
-  width: 350px;
+  width: 200px;
   border-radius: 10px;
   border: 1px solid #dfe1e5;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 16px;
+  margin-right: 10px;
   background-color: white;
 }
 
 .field {
-  width: 275px;
+  width: 125px;
   height: 40px;
   border: none;
   outline: none;

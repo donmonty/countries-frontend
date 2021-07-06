@@ -1,0 +1,30 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  background-color: #F9FAFB;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.header {
+  background-color: #F6F75F;
+  height: 100px;
+  width: 100%;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  /* margin-left: 48px; */
+  width: 100%;
+}
+
+.title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #374151;
+}
